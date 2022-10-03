@@ -1,0 +1,35 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="SpriteKindLegacy" id="/qwr,pa+58J:y#ITF/6S">0Player</variable><variable type="SpriteKindLegacy" id="ME[l2)-*0Gev-mM,MZEU">1Projectile</variable><variable type="SpriteKindLegacy" id=":Avbw@a.n|ct.3F(Hf1-">2Food</variable><variable type="SpriteKindLegacy" id="nLv^i?DHD)uiQM[=pc%y">3Enemy</variable><variable type="ActionKind" id="7*AGXeFn:e/4XN2)mO^?">0Walking</variable><variable type="ActionKind" id="ud.p}%[u5kt]T){RI%IF">1Idle</variable><variable type="ActionKind" id="0B.kXBSjS!5L@?]V^bHD">2Jumping</variable><variable type="KIND_SpriteKind" id="5#z%D{qH_2LlOpNeO/?!">Player</variable><variable type="KIND_SpriteKind" id="$T@gxEOQP4/e]k618k]h">Projectile</variable><variable type="KIND_SpriteKind" id="p[EV=Kzb8`+GwDbTHBK{">Food</variable><variable type="KIND_SpriteKind" id="(^M$HQAbtRD{*(DooAZp">Enemy</variable><variable id="%DGy}ra[nh5{g:%`HuJ*">attractMode</variable><variable id="`5r6E=TmPTQ~EMP}HoSy">ROTATION_CHANGE</variable><variable id="%0LS671VD@#+rV92l2$k">THRUSTER_VELOCITY</variable><variable id="2vr$!$3LN4$]:bi+`eUY">mySprite</variable><variable id="qeizf_fso#OrWxr#NYQ3">mySprite2</variable><variable id="Gj[5EE55TpI`)uC$=1`o">Player2</variable><variable id="Q?5z72W@bGrJ*+sH2+vF">Player1</variable></variables><block type="pxt-on-start" id="@H(}nKsP31r__T%7`PM!" x="0" y="0"><statement name="HANDLER"><block type="variables_set" id="7zmmR(EYz+VG1%GOE~z["><field name="VAR" id="Gj[5EE55TpI`)uC$=1`o">Player2</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="mqWLNzG+dGUr/[h+y$8E"><value name="img"><shadow type="screen_image_picker" id="~mf)O8E?U!`$po}1IsG-"><field name="img">img`
+. . . . . . . . 7 . . . . . . . 
+. . . . . . . . 7 . . . . . . . 
+. . . . . . . . 7 . . . . . . . 
+. . . . . . . 7 f 7 . . . . . . 
+. . . . . . . 7 7 7 . . . . . . 
+. . . . . . . 7 f 7 . . . . . . 
+. . . . . . . 7 7 7 . . . . . . 
+. . . . . . . 7 f 7 . . . . . . 
+. . . . . . . 7 7 7 . . . . . . 
+. . . . . . f 7 f 7 f . . . . . 
+. . . . . . 7 7 7 7 7 . . . . . 
+. . . . . . f 7 f 7 f . . . . . 
+. . . . . . 7 7 7 7 7 . . . . . 
+. . . . . . f 7 f 7 f . . . . . 
+. . . . . 7 7 7 7 7 7 7 . . . . 
+. . . . 7 7 f 7 f 7 f 7 7 . . . 
+`</field><data>{"commentRefs":[],"fieldData":{"img":"~mf)O8E?U!`$po}1IsG-"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="(`D3xoi~)?tmQag]%)]1"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="variables_set" id="B#l/kLy9erS=tu|=q~/C"><field name="VAR" id="Q?5z72W@bGrJ*+sH2+vF">Player1</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="h(~}]McP_vG_H$/)e%e6"><value name="img"><shadow type="screen_image_picker" id="f-HledU8]^L5{NV1n;hd"><field name="img">img`
+. . . . . . . 8 8 . . . . . . . 
+. . . . . . . 8 8 . . . . . . . 
+. . . . . . . 8 8 . . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . . 8 8 8 8 . . . . . . 
+. . . . . 8 8 8 8 8 8 . . . . . 
+. . . . . 8 8 8 8 8 8 . . . . . 
+. . . . 8 8 f f f f 8 8 . . . . 
+. . . . 8 8 f f f f 8 8 . . . . 
+. . . . 8 8 f f f f 8 8 . . . . 
+. . . . 8 8 f f f f 8 8 . . . . 
+. . . 8 8 8 8 8 8 8 8 8 8 . . . 
+. . . 8 8 8 8 8 8 8 8 8 8 . . . 
+. . 8 8 8 8 8 8 8 8 8 8 8 8 . . 
+. 8 8 8 8 f f 8 8 f f 8 8 8 8 . 
+. 8 8 8 8 8 8 8 8 8 8 8 8 8 8 . 
+`</field><data>{"commentRefs":[],"fieldData":{"img":"f-HledU8]^L5{NV1n;hd"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="gbc$iYBVWmt1.@oNQMEw"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="set_simulator_keymap_for_player" id="?w~qTk7([y+WFe.}:e5_"><field name="playerNumber">MakeyMakey.PlayerNumber.ONE</field><field name="buttonUp">MakeyMakey.MakeyMakeyKey.W</field><field name="buttonDown">MakeyMakey.MakeyMakeyKey.S</field><field name="buttonLeft">MakeyMakey.MakeyMakeyKey.A</field><field name="buttonRight">MakeyMakey.MakeyMakeyKey.D</field><field name="buttonA">MakeyMakey.MakeyMakeyKey.F</field><field name="buttonB">MakeyMakey.MakeyMakeyKey.G</field></block></next></block></next></block></statement></block><block type="keyonevent" id="W7AIXjT.t,iMGBAm*s;`" x="820" y="120"><field name="button">controller.left</field><field name="event">ControllerButtonEvent.Pressed</field><statement name="HANDLER"><block type="function_call" id="qZ2d+/O2aQCu}!8ir(K~"><mutation name="rotatePlayer" functionid="w68`q.8UZe2HRXhSU7?T"><arg name="playerSprite" id="tqev8j10qw8uua8gopsq" type="Sprite"></arg><arg name="direction" id="gb4xjtemujgysvwq1k3j" type="number"></arg></mutation><value name="tqev8j10qw8uua8gopsq"><shadow type="variables_get" id="5[cxj@uGSWa)+;:x)R(s"><field name="VAR" id="Q?5z72W@bGrJ*+sH2+vF">Player1</field></shadow></value><value name="gb4xjtemujgysvwq1k3j"><shadow type="math_number" id=",oGse}k@1l,#2sSIRl+^"><field name="NUM">-30</field></shadow></value></block></statement></block><block type="keyonevent" id=":tsLXuAS}l!SdL}iRS`$" x="700" y="380"><field name="button">controller.right</field><field name="event">ControllerButtonEvent.Pressed</field><statement name="HANDLER"><block type="function_call" id="@pGb,rr{y%A9HyA1hd!."><mutation name="rotatePlayer" functionid="w68`q.8UZe2HRXhSU7?T"><arg name="playerSprite" id="tqev8j10qw8uua8gopsq" type="Sprite"></arg><arg name="direction" id="gb4xjtemujgysvwq1k3j" type="number"></arg></mutation><value name="tqev8j10qw8uua8gopsq"><shadow type="variables_get" id="3`xv{~as:_,e5c6X|+?3"><field name="VAR" id="Q?5z72W@bGrJ*+sH2+vF">Player1</field></shadow></value><value name="gb4xjtemujgysvwq1k3j"><shadow type="math_number" id="1C(VPff(3}9*B.JJ^Wty"><field name="NUM">30</field></shadow></value></block></statement></block><block type="function_definition" id="6/5b%BSa#d+`rv^YC=Xa" x="-84" y="671"><mutation name="rotatePlayer" functionid="w68`q.8UZe2HRXhSU7?T"><arg name="playerSprite" id="tqev8j10qw8uua8gopsq" type="Sprite"></arg><arg name="direction" id="gb4xjtemujgysvwq1k3j" type="number"></arg></mutation><field name="function_name">rotatePlayer</field><statement name="STACK"><block type="transform_change_rotation" id="TOzXT;t/N(hDVr!!0q{K"><value name="sprite"><block type="argument_reporter_custom" id="8dQ!WHk,)/o9Y]T.-hn{"><mutation typename="Sprite"></mutation><field name="VALUE">playerSprite</field></block></value><value name="angleChange"><block type="argument_reporter_number" id="h3U4EUoj;R{y1)j#cwg*"><field name="VALUE">direction</field></block></value></block></statement></block></xml>
