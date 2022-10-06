@@ -24,6 +24,7 @@ sprites.onOverlap(SpriteKind.Player1, SpriteKind.Projectile, function (sprite, o
     info.player1.changeLifeBy(-1)
     otherSprite.destroy()
     info.player2.changeScoreBy(1)
+    sprite.startEffect(effects.ashes, 500)
 })
 controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
     Fire_the_lasers(Player2)
@@ -32,6 +33,7 @@ sprites.onOverlap(SpriteKind.Player2, SpriteKind.Pewer, function (sprite, otherS
     info.player2.changeLifeBy(-1)
     otherSprite.destroy()
     info.player1.changeScoreBy(1)
+    sprite.startEffect(effects.ashes, 500)
 })
 controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
     Fire_the_rockets(Player2)
@@ -47,6 +49,7 @@ function Fire_the_rockets (mySprite: Sprite) {
     ThrustY = Thruster_V * Math.sin(ThrustDirRads)
     mySprite.vx += ThrustX
     mySprite.vy += ThrustY
+    mySprite.startEffect(effects.fire, 500)
 }
 controller.player2.onButtonEvent(ControllerButton.Left, ControllerButtonEvent.Pressed, function () {
     rotatePlayer(Player2, -30)
@@ -54,6 +57,25 @@ controller.player2.onButtonEvent(ControllerButton.Left, ControllerButtonEvent.Pr
 controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.Pressed, function () {
     rotatePlayer(Player1, 30)
 })
+controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+    game.reset()
+})
+function Wrap_sprite (mySprite: Sprite) {
+    if (mySprite.x < 0 || mySprite.x > 160) {
+        if (mySprite.x < 50) {
+            mySprite.x = 160
+        } else {
+            mySprite.x = 0
+        }
+    }
+    if (mySprite.y < 0 || mySprite.y > 120) {
+        if (mySprite.y < 50) {
+            mySprite.y = 120
+        } else {
+            mySprite.y = 0
+        }
+    }
+}
 function Fire_the_lasers (mySprite: Sprite) {
     LaserDir = transformSprites.getRotation(mySprite) - 90
     LaserDirRads = LaserDir * 3.1416 / 180
@@ -136,6 +158,7 @@ let Laser__V = 0
 let Thruster_V = 0
 let Player1: Sprite = null
 let Player2: Sprite = null
+effects.starField.startScreenEffect()
 Player2 = sprites.create(img`
     . . . . . . . c d . . . . . . . 
     . . . . . . . c d . . . . . . . 
@@ -154,7 +177,7 @@ Player2 = sprites.create(img`
     8 8 8 8 8 8 8 8 6 6 6 9 6 6 8 8 
     8 8 8 8 8 8 8 8 6 6 6 6 9 6 8 8 
     `, SpriteKind.Player2)
-Player2.setStayInScreen(true)
+Player2.setStayInScreen(false)
 Player1 = sprites.create(img`
     . . . . . . . c d . . . . . . . 
     . . . . . . . c d . . . . . . . 
@@ -173,10 +196,14 @@ Player1 = sprites.create(img`
     c c c c c c e e 2 2 2 4 2 2 e e 
     c c c c c c e e 2 2 2 2 4 2 e e 
     `, SpriteKind.Player1)
-Thruster_V = 10
-Player1.setStayInScreen(true)
+Thruster_V = 7
+Player1.setStayInScreen(false)
 Laser__V = 100
 info.player2.setLife(10)
 info.player1.setLife(10)
 info.player2.setScore(0)
 info.player1.setScore(0)
+forever(function () {
+    Wrap_sprite(Player1)
+    Wrap_sprite(Player2)
+})
